@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>퀴즈 결과</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1 id="score-display">당신의 점수:</h1>
+    <div id="wrong-list"></div>
+    <img src="{% static 'img/result.png' %}" alt="결과 이미지">
+  </div>
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  const score = params.get('score');
+  const wrongRaw = params.get('wrong');
+  const wrongAnswers = wrongRaw ? JSON.parse(decodeURIComponent(wrongRaw)) : [];
+
+  // 점수 출력
+  document.getElementById("score-display").innerText = `당신의 점수: ${score} / 50`;
+
+  // 틀린 문제 출력
+  const listDiv = document.getElementById("wrong-list");
+  if (wrongAnswers.length === 0) {
+    listDiv.innerHTML = "<p>모든 문제를 맞혔습니다! 🎉</p>";
+  } else {
+    listDiv.innerHTML = "<h2>틀린 문제 목록</h2>";
+    wrongAnswers.forEach(({index, input, keywords}) => {
+      const item = document.createElement("div");
+      item.innerHTML = `
+        <p><strong>${index}번 문제</strong></p>
+        <ul>
+          <li>입력한 답: ${input}</li>
+          <li>정답 키워드: ${keywords.join(", ")}</li>
+        </ul>
+      `;
+      listDiv.appendChild(item);
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>퀴즈 진행</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div id="quiz-container" class="container">
+    <h2 id="question-title">문제 제목</h2>
+    <iframe id="audio" width="560" height="315" frameborder="0" allow="autoplay"></iframe>
+    <br />
+    <input type="text" id="answer-input" placeholder="정답을 입력하세요" />
+    <br />
+    <button id="submit-btn">제출</button>
+    <button id="pause-btn">일시정지</button>
+  </div>
+
+  <div id="pause-overlay">
+    <h2>일시정지 중</h2>
+    <button id="resume-btn">재개</button>
+  </div>
+
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
