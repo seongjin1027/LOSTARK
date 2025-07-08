@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>소리만 재생</title>
+  <style>
+    body {
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .text {
+      color: white;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="text">재생하려면 클릭하세요</div>
+  <button onclick="playAudio()">재생</button>
+  <audio id="quiz-audio" src="static/audio/question-3.mp3"></audio>
+  <script>
+    function playAudio() {
+      const audio = document.getElementById("quiz-audio");
+      audio.play();
+    }
+  </script>
+</body>
+</html>

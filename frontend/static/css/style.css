@@ -11,9 +11,27 @@ body {
   padding: 50px;
 }
 
+iframe#audio {
+  width: 80%;
+  max-width: 800px;
+  height: 400px;
+  margin-bottom: 30px;
+  border: none;
+}
+
+input#answer-input {
+  font-size: 24px;
+  padding: 12px;
+  width: 60%;
+  max-width: 500px;
+  margin: 20px 0;
+  border-radius: 6px;
+  border: none;
+}
+
 button {
-  padding: 10px 20px;
-  font-size: 18px;
+  padding: 12px 24px;
+  font-size: 20px;
   margin: 10px;
   cursor: pointer;
   border-radius: 8px;
@@ -31,8 +49,18 @@ button {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
   flex-direction: column;
+  z-index: 1000;
+}
+
+#pause-overlay h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#resume-btn {
+  font-size: 24px;
+  padding: 12px 30px;
 }
 
 img {

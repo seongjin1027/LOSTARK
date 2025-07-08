@@ -5,14 +5,89 @@
   <meta charset="UTF-8">
   <title>Lostark OST 퀴즈</title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .start-container {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 0 40px;
+      box-sizing: border-box;
+    }
+
+    .start-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .center-box {
+      text-align: center;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    #start-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #nickname-input {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 18px;
+      width: 250px;
+      border-radius: 6px;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Lostark OST 퀴즈</h1>
-    <button id="start-btn">시작</button>
-    <br />
-    <img src="{% static 'img/start.png' %}" alt="퀴즈 시작 이미지">
+  <div class="start-container">
+    <!-- 왼쪽 이미지 -->
+    <img src="{% static 'img/start-left.png' %}" alt="왼쪽 이미지" class="start-image">
+
+    <!-- 가운데 텍스트 + 입력 + 버튼 -->
+    <div class="center-box">
+      <h1>Lostark OST 퀴즈</h1>
+      <input type="text" id="nickname-input" placeholder="닉네임을 입력하세요" />
+      <br />
+      <button id="start-btn">시작</button>
+    </div>
+
+    <!-- 오른쪽 이미지 -->
+    <img src="{% static 'img/start-right.jpg' %}" alt="오른쪽 이미지" class="start-image">
   </div>
-  <script src="{% static 'js/main.js' %}"></script>
+
+  <!-- ✅ DOMContentLoaded로 보장 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const startBtn = document.getElementById("start-btn");
+      const nicknameInput = document.getElementById("nickname-input");
+
+      startBtn.onclick = function () {
+        const name = nicknameInput.value.trim();
+        if (!name) {
+          alert("닉네임을 입력해주세요!");
+          return;
+        }
+        window.location.href = `/quiz.html?name=${encodeURIComponent(name)}`;
+      };
+    });
+  </script>
 </body>
 </html>
+
+

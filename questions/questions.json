@@ -1,402 +1,330 @@
 [
   {
-    "title": "1번 문제",
-    "url": "https://www.youtube.com/embed/sample01?autoplay=1",
-    "keywords": [
-      "정답1",
-      "keyword1"
+    "audio": "/static/audio/question-1.mp3",
+    "answer": [
+      "몽중화"
     ]
   },
   {
-    "title": "2번 문제",
-    "url": "https://www.youtube.com/embed/sample02?autoplay=1",
-    "keywords": [
-      "정답2",
-      "keyword2"
+    "audio": "/static/audio/question-2.mp3",
+    "answer": [
+      "모르둠 3관",
+      "심연의 징벌자, 모르둠"
     ]
   },
   {
-    "title": "3번 문제",
-    "url": "https://www.youtube.com/embed/sample03?autoplay=1",
-    "keywords": [
-      "정답3",
-      "keyword3"
+    "audio": "/static/audio/question-3.mp3",
+    "answer": [
+      "모르둠 2관",
+      "만개한 공포, 나이트레아"
     ]
   },
   {
-    "title": "4번 문제",
-    "url": "https://www.youtube.com/embed/sample04?autoplay=1",
-    "keywords": [
-      "정답4",
-      "keyword4"
+    "audio": "/static/audio/question-4.mp3",
+    "answer": [
+      "모르둠 1관",
+      "카멘, 어둠의 피조물 인페르나스"
     ]
   },
   {
-    "title": "5번 문제",
-    "url": "https://www.youtube.com/embed/sample05?autoplay=1",
-    "keywords": [
-      "정답5",
-      "keyword5"
+    "audio": "/static/audio/question-5.mp3",
+    "answer": [
+      "카제 아브 2관",
+      "레퀴엠: 예언된 심판의 노래"
     ]
   },
   {
-    "title": "6번 문제",
-    "url": "https://www.youtube.com/embed/sample06?autoplay=1",
-    "keywords": [
-      "정답6",
-      "keyword6"
+    "audio": "/static/audio/question-6.mp3",
+    "answer": [
+      "카제 아브 1관",
+      "얼어붙은 공포, 나로크"
     ]
   },
   {
-    "title": "7번 문제",
-    "url": "https://www.youtube.com/embed/sample07?autoplay=1",
-    "keywords": [
-      "정답7",
-      "keyword7"
+    "audio": "/static/audio/question-7.mp3",
+    "answer": [
+      "에기르 2관",
+      "짓밟는 자, 에기르"
     ]
   },
   {
-    "title": "8번 문제",
-    "url": "https://www.youtube.com/embed/sample08?autoplay=1",
-    "keywords": [
-      "정답8",
-      "keyword8"
+    "audio": "/static/audio/question-8.mp3",
+    "answer": [
+      "에기르 1관",
+      "죽음의 왕 일리아칸"
     ]
   },
   {
-    "title": "9번 문제",
-    "url": "https://www.youtube.com/embed/sample09?autoplay=1",
-    "keywords": [
-      "정답9",
-      "keyword9"
+    "audio": "/static/audio/question-9.mp3",
+    "answer": [
+      "베히모스 2관",
+      "잔혹한 폭풍의 처단자, 베히모스"
     ]
   },
   {
-    "title": "10번 문제",
-    "url": "https://www.youtube.com/embed/sample10?autoplay=1",
-    "keywords": [
-      "정답10",
-      "keyword10"
+    "audio": "/static/audio/question-10.mp3",
+    "answer": [
+      "베히모스 1관",
+      "폭풍의 지휘관, 베히모스"
     ]
   },
   {
-    "title": "11번 문제",
-    "url": "https://www.youtube.com/embed/sample11?autoplay=1",
-    "keywords": [
-      "정답11",
-      "keyword11"
+    "audio": "/static/audio/question-11.mp3",
+    "answer": [
+      "에키드나 2관",
+      "에키드나"
     ]
   },
   {
-    "title": "12번 문제",
-    "url": "https://www.youtube.com/embed/sample12?autoplay=1",
-    "keywords": [
-      "정답12",
-      "keyword12"
+    "audio": "/static/audio/question-12.mp3",
+    "answer": [
+      "에키드나 1관",
+      "다르키엘"
     ]
   },
   {
-    "title": "13번 문제",
-    "url": "https://www.youtube.com/embed/sample13?autoplay=1",
-    "keywords": [
-      "정답13",
-      "keyword13"
+    "audio": "/static/audio/question-13.mp3",
+    "answer": [
+      "샤"
     ]
   },
   {
-    "title": "14번 문제",
-    "url": "https://www.youtube.com/embed/sample14?autoplay=1",
-    "keywords": [
-      "정답14",
-      "keyword14"
+    "audio": "/static/audio/question-14.mp3",
+    "answer": [
+      "엘네아드"
     ]
   },
   {
-    "title": "15번 문제",
-    "url": "https://www.youtube.com/embed/sample15?autoplay=1",
-    "keywords": [
-      "정답15",
-      "keyword15"
+    "audio": "/static/audio/question-15.mp3",
+    "answer": [
+      "칼리나리"
     ]
   },
   {
-    "title": "16번 문제",
-    "url": "https://www.youtube.com/embed/sample16?autoplay=1",
-    "keywords": [
-      "정답16",
-      "keyword16"
+    "audio": "/static/audio/question-16.mp3",
+    "answer": [
+      "플레체"
     ]
   },
   {
-    "title": "17번 문제",
-    "url": "https://www.youtube.com/embed/sample17?autoplay=1",
-    "keywords": [
-      "정답17",
-      "keyword17"
+    "audio": "/static/audio/question-17.mp3",
+    "answer": [
+      "아리안오브"
     ]
   },
   {
-    "title": "18번 문제",
-    "url": "https://www.youtube.com/embed/sample18?autoplay=1",
-    "keywords": [
-      "정답18",
-      "keyword18"
+    "audio": "/static/audio/question-18.mp3",
+    "answer": [
+      "엘리야베크"
     ]
   },
   {
-    "title": "19번 문제",
-    "url": "https://www.youtube.com/embed/sample19?autoplay=1",
-    "keywords": [
-      "정답19",
-      "keyword19"
+    "audio": "/static/audio/question-19.mp3",
+    "answer": [
+      "니아 마을"
     ]
   },
   {
-    "title": "20번 문제",
-    "url": "https://www.youtube.com/embed/sample20?autoplay=1",
-    "keywords": [
-      "정답20",
-      "keyword20"
+    "audio": "/static/audio/question-20.mp3",
+    "answer": [
+      "칼라자 마을"
     ]
   },
   {
-    "title": "21번 문제",
-    "url": "https://www.youtube.com/embed/sample21?autoplay=1",
-    "keywords": [
-      "정답21",
-      "keyword21"
+    "audio": "/static/audio/question-21.mp3",
+    "answer": [
+      "위대한 성"
     ]
   },
   {
-    "title": "22번 문제",
-    "url": "https://www.youtube.com/embed/sample22?autoplay=1",
-    "keywords": [
-      "정답22",
-      "keyword22"
+    "audio": "/static/audio/question-22.mp3",
+    "answer": [
+      "로아룬"
     ]
   },
   {
-    "title": "23번 문제",
-    "url": "https://www.youtube.com/embed/sample23?autoplay=1",
-    "keywords": [
-      "정답23",
-      "keyword23"
+    "audio": "/static/audio/question-23.mp3",
+    "answer": [
+      "얼어붙은 바다"
     ]
   },
   {
-    "title": "24번 문제",
-    "url": "https://www.youtube.com/embed/sample24?autoplay=1",
-    "keywords": [
-      "정답24",
-      "keyword24"
+    "audio": "/static/audio/question-24.mp3",
+    "answer": [
+      "베른 성"
     ]
   },
   {
-    "title": "25번 문제",
-    "url": "https://www.youtube.com/embed/sample25?autoplay=1",
-    "keywords": [
-      "정답25",
-      "keyword25"
+    "audio": "/static/audio/question-25.mp3",
+    "answer": [
+      "메마른 통로"
     ]
   },
   {
-    "title": "26번 문제",
-    "url": "https://www.youtube.com/embed/sample26?autoplay=1",
-    "keywords": [
-      "정답26",
-      "keyword26"
+    "audio": "/static/audio/question-26.mp3",
+    "answer": [
+      "창천"
     ]
   },
   {
-    "title": "27번 문제",
-    "url": "https://www.youtube.com/embed/sample27?autoplay=1",
-    "keywords": [
-      "정답27",
-      "keyword27"
+    "audio": "/static/audio/question-27.mp3",
+    "answer": [
+      "모코코 마을"
     ]
   },
   {
-    "title": "28번 문제",
-    "url": "https://www.youtube.com/embed/sample28?autoplay=1",
-    "keywords": [
-      "정답28",
-      "keyword28"
+    "audio": "/static/audio/question-28.mp3",
+    "answer": [
+      "루테란 성"
     ]
   },
   {
-    "title": "29번 문제",
-    "url": "https://www.youtube.com/embed/sample29?autoplay=1",
-    "keywords": [
-      "정답29",
-      "keyword29"
+    "audio": "/static/audio/question-29.mp3",
+    "answer": [
+      "레온하트"
     ]
   },
   {
-    "title": "30번 문제",
-    "url": "https://www.youtube.com/embed/sample30?autoplay=1",
-    "keywords": [
-      "정답30",
-      "keyword30"
+    "audio": "/static/audio/question-30.mp3",
+    "answer": [
+      "꿈꾸는 추억의 섬",
+      "꿈추섬"
     ]
   },
   {
-    "title": "31번 문제",
-    "url": "https://www.youtube.com/embed/sample31?autoplay=1",
-    "keywords": [
-      "정답31",
-      "keyword31"
+    "audio": "/static/audio/question-31.mp3",
+    "answer": [
+      "마법에 걸린 박물관",
+      "추억의 박물관"
     ]
   },
   {
-    "title": "32번 문제",
-    "url": "https://www.youtube.com/embed/sample32?autoplay=1",
-    "keywords": [
-      "정답32",
-      "keyword32"
+    "audio": "/static/audio/question-32.mp3",
+    "answer": [
+      "기원의 섬"
     ]
   },
   {
-    "title": "33번 문제",
-    "url": "https://www.youtube.com/embed/sample33?autoplay=1",
-    "keywords": [
-      "정답33",
-      "keyword33"
+    "audio": "/static/audio/question-33.mp3",
+    "answer": [
+      "빛나는 추억의 섬",
+      "빛추섬"
     ]
   },
   {
-    "title": "34번 문제",
-    "url": "https://www.youtube.com/embed/sample34?autoplay=1",
-    "keywords": [
-      "정답34",
-      "keyword34"
+    "audio": "/static/audio/question-34.mp3",
+    "answer": [
+      "카멘 4관",
+      "종말의 시"
     ]
   },
   {
-    "title": "35번 문제",
-    "url": "https://www.youtube.com/embed/sample35?autoplay=1",
-    "keywords": [
-      "정답35",
-      "keyword35"
+    "audio": "/static/audio/question-35.mp3",
+    "answer": [
+      "카멘 3관",
+      "빛을 꺼트리는 자 카멘"
     ]
   },
   {
-    "title": "36번 문제",
-    "url": "https://www.youtube.com/embed/sample36?autoplay=1",
-    "keywords": [
-      "정답36",
-      "keyword36"
+    "audio": "/static/audio/question-36.mp3",
+    "answer": [
+      "카멘 2관",
+      "금기를 삼킨 자 발리나크"
     ]
   },
   {
-    "title": "37번 문제",
-    "url": "https://www.youtube.com/embed/sample37?autoplay=1",
-    "keywords": [
-      "정답37",
-      "keyword37"
+    "audio": "/static/audio/question-37.mp3",
+    "answer": [
+      "카멘 1관",
+      "칠흑의 숭배자 킬리네사"
     ]
   },
   {
-    "title": "38번 문제",
-    "url": "https://www.youtube.com/embed/sample38?autoplay=1",
-    "keywords": [
-      "정답38",
-      "keyword38"
+    "audio": "/static/audio/question-38.mp3",
+    "answer": [
+      "군단장 아브 4관",
+      "몽환의 아스탤지어"
     ]
   },
   {
-    "title": "39번 문제",
-    "url": "https://www.youtube.com/embed/sample39?autoplay=1",
-    "keywords": [
-      "정답39",
-      "keyword39"
+    "audio": "/static/audio/question-39.mp3",
+    "answer": [
+      "군단장 아브 3관",
+      "태초의 악몽"
     ]
   },
   {
-    "title": "40번 문제",
-    "url": "https://www.youtube.com/embed/sample40?autoplay=1",
-    "keywords": [
-      "정답40",
-      "keyword40"
+    "audio": "/static/audio/question-40.mp3",
+    "answer": [
+      "군단장 아브 2관",
+      "아슈타로테"
     ]
   },
   {
-    "title": "41번 문제",
-    "url": "https://www.youtube.com/embed/sample41?autoplay=1",
-    "keywords": [
-      "정답41",
-      "keyword41"
+    "audio": "/static/audio/question-41.mp3",
+    "answer": [
+      "군단장 아브 1관",
+      "악몽의 그늘"
     ]
   },
   {
-    "title": "42번 문제",
-    "url": "https://www.youtube.com/embed/sample42?autoplay=1",
-    "keywords": [
-      "정답42",
-      "keyword42"
+    "audio": "/static/audio/question-42.mp3",
+    "answer": [
+      "일리아칸 3관",
+      "질병군단장 일리아칸"
     ]
   },
   {
-    "title": "43번 문제",
-    "url": "https://www.youtube.com/embed/sample43?autoplay=1",
-    "keywords": [
-      "정답43",
-      "keyword43"
+    "audio": "/static/audio/question-43.mp3",
+    "answer": [
+      "일리아칸 2관",
+      "쇠락의 군주 일리아칸"
     ]
   },
   {
-    "title": "44번 문제",
-    "url": "https://www.youtube.com/embed/sample44?autoplay=1",
-    "keywords": [
-      "정답44",
-      "keyword44"
+    "audio": "/static/audio/question-44.mp3",
+    "answer": [
+      "일리아칸 1관",
+      "비통의 지배자 마우르그"
     ]
   },
   {
-    "title": "45번 문제",
-    "url": "https://www.youtube.com/embed/sample45?autoplay=1",
-    "keywords": [
-      "정답45",
-      "keyword45"
+    "audio": "/static/audio/question-45.mp3",
+    "answer": [
+      "강습 림레이크"
     ]
   },
   {
-    "title": "46번 문제",
-    "url": "https://www.youtube.com/embed/sample46?autoplay=1",
-    "keywords": [
-      "정답46",
-      "keyword46"
+    "audio": "/static/audio/question-46.mp3",
+    "answer": [
+      "라제니스의 노래"
     ]
   },
   {
-    "title": "47번 문제",
-    "url": "https://www.youtube.com/embed/sample47?autoplay=1",
-    "keywords": [
-      "정답47",
-      "keyword47"
+    "audio": "/static/audio/question-47.mp3",
+    "answer": [
+      "시즌2 로그인 테마",
+      "부활한 심연의 군주"
     ]
   },
   {
-    "title": "48번 문제",
-    "url": "https://www.youtube.com/embed/sample48?autoplay=1",
-    "keywords": [
-      "정답48",
-      "keyword48"
+    "audio": "/static/audio/question-48.mp3",
+    "answer": [
+      "일리오스 섬",
+      "새해 이벤트 섬"
     ]
   },
   {
-    "title": "49번 문제",
-    "url": "https://www.youtube.com/embed/sample49?autoplay=1",
-    "keywords": [
-      "정답49",
-      "keyword49"
+    "audio": "/static/audio/question-49.mp3",
+    "answer": [
+      "아이가 자라는 밤",
+      "플레체 클라우디아 테마"
     ]
   },
   {
-    "title": "50번 문제",
-    "url": "https://www.youtube.com/embed/sample50?autoplay=1",
-    "keywords": [
-      "정답50",
-      "keyword50"
+    "audio": "/static/audio/question-50.mp3",
+    "answer": [
+      "봄의 야시장"
     ]
   }
 ]
