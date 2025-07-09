@@ -24,7 +24,7 @@ document.addEventListener("visibilitychange", () => {
     timer = setInterval(() => {
       tabInactiveTime += 1;
       if (tabInactiveTime >= 10) {
-        nextQuestion(true);
+        nextQuestion(true);  // 강제로 넘어가기
       }
     }, 1000);
   } else {
@@ -93,10 +93,8 @@ function showQuestion() {
 
 // 정답 확인
 function checkAnswer() {
-  if (!questions[currentIndex]) {
-    console.warn("잘못된 접근: 문제가 존재하지 않음");
-    return;
-  }
+  if (waitingForNext) return;  // 중복 제출 방지
+  if (!questions[currentIndex]) return;
 
   const input = document.getElementById("answer-input").value.trim().toLowerCase();
   const keywords = questions[currentIndex].answer.map(k => k.toLowerCase());
@@ -126,7 +124,7 @@ function showFeedback(isCorrect) {
 
 // 다음 문제로 이동
 function nextQuestion(force = false) {
-  if ((pause && !force) || waitingForNext) return;
+  if ((pause && !force) || !waitingForNext) return;
   currentIndex += 1;
   showQuestion();
 }
@@ -151,7 +149,7 @@ function playAudio() {
   }
 }
 
-// 페이지 로딩 시 이벤트 연결
+// 이벤트 연결
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("quiz-container")) {
     fetchQuestions();
@@ -187,4 +185,5 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("score-display").innerText = `${nickname}님의 점수: ${score} / 50`;
   }
 });
+
 
