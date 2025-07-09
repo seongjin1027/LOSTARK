@@ -62,7 +62,7 @@
     <!-- 가운데 텍스트 + 입력 + 버튼 -->
     <div class="center-box">
       <h1>Lostark OST 퀴즈</h1>
-      <input type="text" id="nickname-input" placeholder="닉네임을 입력하세요" />
+      <input type="text" id="nickname-input" placeholder="닉네임을 입력하세요" required />
       <br />
       <button id="start-btn">시작</button>
     </div>
@@ -71,7 +71,6 @@
     <img src="{% static 'img/start-right.jpg' %}" alt="오른쪽 이미지" class="start-image">
   </div>
 
-  <!-- ✅ DOMContentLoaded로 보장 -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const startBtn = document.getElementById("start-btn");
@@ -83,11 +82,44 @@
           alert("닉네임을 입력해주세요!");
           return;
         }
-        window.location.href = `/quiz.html?name=${encodeURIComponent(name)}`;
+
+        fetch('/start/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')  // CSRF 토큰 필요
+          },
+          body: JSON.stringify({ nickname: name })
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = '/quiz.html';
+          } else {
+            alert("닉네임 저장 실패");
+          }
+        });
       };
+
+      // CSRF 토큰 가져오는 함수
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
     });
   </script>
 </body>
 </html>
+
+
 
 
