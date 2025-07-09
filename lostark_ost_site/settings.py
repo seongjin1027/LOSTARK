@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-your-secret-key'
 
 # 개발 중엔 True
 DEBUG = True
-ALLOWED_HOSTS = ['15.164.220.66', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['solbabo.kro.kr', '15.164.220.66', 'localhost', '127.0.0.1']
 
 
 CSRF_TRUSTED_ORIGINS = [
