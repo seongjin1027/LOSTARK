@@ -47,10 +47,39 @@ def submit_score(request):
         data = json.loads(request.body)
         score = data.get('score', 0)
         nickname = request.session.get('nickname', 'unknown')
+
         QuizResult.objects.create(nickname=nickname, score=score)
+
+        # ✅ IP 주소 추출
+        ip = request.META.get('HTTP_X_FORWARDED_FOR')
+        if ip:
+            ip = ip.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+
+        # ✅ UserAnswer 집계
+        user_answers = UserAnswer.objects.filter(nickname=nickname)
+        total = user_answers.count()
+
+        wrong = 0
+        for ans in user_answers:
+            if not any(k.lower() in ans.user_answer.lower() for k in ans.correct_keywords):
+                wrong += 1
+        correct = total - wrong
+
+        # ✅ AnswerSummary 생성 또는 업데이트
+        AnswerSummary.objects.update_or_create(
+            nickname=nickname,
+            defaults={
+                'ip_address': ip,
+                'total_questions': total,
+                'correct_count': correct,
+                'wrong_count': wrong,
+            }
+        )
+
         return JsonResponse({'message': '저장 완료!'})
     return JsonResponse({'error': 'Invalid request'}, status=400)
-
 # ✅ 유저 개별 답안 저장 API
 @csrf_exempt
 def save_answer(request):
