@@ -93,6 +93,11 @@ function showQuestion() {
 
 // 정답 확인
 function checkAnswer() {
+  if (!questions[currentIndex]) {
+    console.warn("잘못된 접근: 문제가 존재하지 않음");
+    return;
+  }
+
   const input = document.getElementById("answer-input").value.trim().toLowerCase();
   const keywords = questions[currentIndex].answer.map(k => k.toLowerCase());
 
