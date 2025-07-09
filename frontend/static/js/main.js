@@ -7,7 +7,7 @@ let timer;
 let wrongAnswers = [];
 let waitingForNext = false;
 
-// ✅ 문제 진행 상태 표시
+// 문제 번호 및 남은 문제 수 표시
 function updateQuestionStatus() {
   const status = document.getElementById("question-number");
   const current = currentIndex + 1;
@@ -54,9 +54,12 @@ function fetchQuestions() {
 
 // 현재 문제 보여주기
 function showQuestion() {
+  // 피드백 오버레이 숨기기
+  const overlay = document.getElementById("feedback-overlay");
+  if (overlay) overlay.style.display = "none";
+
   if (currentIndex >= questions.length) {
     const wrong = encodeURIComponent(JSON.stringify(wrongAnswers));
-
     fetch("/api/submit/", {
       method: "POST",
       headers: {
@@ -69,25 +72,22 @@ function showQuestion() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log("서버 저장 완료:", data);
         window.location.href = `/result.html?name=${encodeURIComponent(window.nickname)}&score=${score}&wrong=${wrong}`;
       })
       .catch(error => {
-        console.error("서버 전송 실패:", error);
         alert("결과 저장에 실패했습니다.");
         window.location.href = `/result.html?name=${encodeURIComponent(window.nickname)}&score=${score}&wrong=${wrong}`;
       });
-
     return;
   }
 
   updateQuestionStatus();
 
   const q = questions[currentIndex];
-  console.log("오디오 경로:", q.audio);
-
   const audio = document.getElementById("quiz-audio");
-  audio.src = q.audio;  // 자동재생 제거
+  audio.src = q.audio; // ❌ 자동재생 제거됨
+  audio.pause();
+  audio.currentTime = 0;
 
   document.getElementById("answer-input").value = "";
 }
@@ -108,27 +108,26 @@ function checkAnswer() {
     });
   }
 
-  showFeedback(isCorrect); // 결과 화면으로 전환
+  showFeedback(isCorrect);
 }
 
-// ✅ 정답/오답 결과 보여주기
+// 정답/오답 피드백
 function showFeedback(isCorrect) {
   const overlay = document.getElementById("feedback-overlay");
   const message = document.getElementById("feedback-message");
-
   message.textContent = isCorrect ? "✅ 정답입니다!" : "❌ 오답입니다!";
   overlay.style.display = "flex";
   waitingForNext = true;
 }
 
-// 다음 문제로
+// 다음 문제로 이동
 function nextQuestion(force = false) {
   if ((pause && !force) || waitingForNext) return;
   currentIndex += 1;
   showQuestion();
 }
 
-// 일시정지 & 음악도 멈추기
+// 일시정지 (음악 포함)
 function togglePause() {
   pause = !pause;
   const overlay = document.getElementById("pause-overlay");
@@ -145,30 +144,29 @@ function playAudio() {
   const audio = document.getElementById("quiz-audio");
   if (audio) {
     audio.play();
-  } else {
-    console.error("오디오 요소가 없습니다.");
   }
 }
 
-// 페이지 로드 시 실행
+// 페이지 로딩 시
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("main.js loaded");
-
   if (document.getElementById("quiz-container")) {
     fetchQuestions();
     document.getElementById("submit-btn").onclick = checkAnswer;
     document.getElementById("pause-btn").onclick = togglePause;
     document.getElementById("resume-btn").onclick = togglePause;
 
-    // ✅ "다음 문제" 버튼
-    document.getElementById("next-btn").onclick = function () {
-      const overlay = document.getElementById("feedback-overlay");
-      overlay.style.display = "none";
-      waitingForNext = false;
-      nextQuestion();
-    };
+    const nextBtn = document.getElementById("next-btn");
+    if (nextBtn) {
+      nextBtn.onclick = () => {
+        const overlay = document.getElementById("feedback-overlay");
+        if (overlay) overlay.style.display = "none";
+        waitingForNext = false;
+        nextQuestion();
+      };
+    }
   }
 
+  // 결과 페이지 점수 표시
   if (document.getElementById("score-display")) {
     const params = new URLSearchParams(window.location.search);
     const score = params.get("score");
@@ -176,5 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("score-display").innerText = `${nickname}님의 점수: ${score} / 50`;
   }
 });
+
 
 
