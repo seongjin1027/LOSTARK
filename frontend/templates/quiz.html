@@ -45,7 +45,7 @@
 
     <audio id="quiz-audio" preload="auto" controls></audio>
     <br />
-    <button onclick="playAudio()">재생</button>
+    <button id="play-btn">재생</button>
     <br />
 
     <input type="text" id="answer-input" placeholder="정답을 입력하세요" />
@@ -64,14 +64,17 @@
     <button id="next-btn" style="padding: 10px 20px; font-size: 18px;">다음 문제</button>
   </div>
 
+  <!-- 닉네임 세션 유지용 -->
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     window.nickname = urlParams.get("name") || "익명";
   </script>
 
+  <!-- JavaScript 로직은 항상 body 맨 아래에서 로드 -->
   <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
+
 
 
 
