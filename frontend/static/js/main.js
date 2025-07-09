@@ -54,27 +54,27 @@ function fetchQuestions() {
 
 // 현재 문제 보여주기
 function showQuestion() {
-  // 피드백 오버레이 숨기기
   const overlay = document.getElementById("feedback-overlay");
   if (overlay) overlay.style.display = "none";
+
+  // ✅ 문제 시작 시 대기 상태 초기화
+  waitingForNext = false;
 
   if (currentIndex >= questions.length) {
     const wrong = encodeURIComponent(JSON.stringify(wrongAnswers));
     fetch("/api/submit/", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         nickname: window.nickname || "익명",
         score: score
       }),
     })
       .then(res => res.json())
-      .then(data => {
+      .then(() => {
         window.location.href = `/result.html?name=${encodeURIComponent(window.nickname)}&score=${score}&wrong=${wrong}`;
       })
-      .catch(error => {
+      .catch(() => {
         alert("결과 저장에 실패했습니다.");
         window.location.href = `/result.html?name=${encodeURIComponent(window.nickname)}&score=${score}&wrong=${wrong}`;
       });
@@ -94,8 +94,6 @@ function showQuestion() {
 
 // 정답 확인
 function checkAnswer() {
-  if (waitingForNext) return;
-
   const input = document.getElementById("answer-input").value.trim().toLowerCase();
   const keywords = questions[currentIndex].answer.map(k => k.toLowerCase());
 
@@ -124,9 +122,8 @@ function showFeedback(isCorrect) {
 
 // 다음 문제로 이동
 function nextQuestion(force = false) {
-  if ((pause && !force) || (!force && waitingForNext)) return;
+  if ((pause && !force) || (!force && !waitingForNext)) return;
   currentIndex += 1;
-  waitingForNext = false;
   showQuestion();
 }
 
@@ -161,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById("next-btn");
     if (nextBtn) {
       nextBtn.onclick = () => {
+        if (!waitingForNext) return;
         const overlay = document.getElementById("feedback-overlay");
         if (overlay) overlay.style.display = "none";
         nextQuestion();
@@ -176,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("score-display").innerText = `${nickname}님의 점수: ${score} / 50`;
   }
 });
+
 
 
 
