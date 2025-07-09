@@ -93,7 +93,7 @@
         })
         .then(response => {
           if (response.ok) {
-            window.location.href = '/quiz.html';
+            window.location.href = '/quiz.html?name=' + encodeURIComponent(name);
           } else {
             alert("닉네임 저장 실패");
           }
