@@ -9,7 +9,16 @@ SECRET_KEY = 'django-insecure-your-secret-key'
 
 # 개발 중엔 True
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['15.164.220.66', 'localhost', '127.0.0.1']
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.ngrok-free.app'
+]
+
+
+
+
 
 # 설치된 앱
 INSTALLED_APPS = [
