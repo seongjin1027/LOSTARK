@@ -85,7 +85,7 @@ function showQuestion() {
 
   const q = questions[currentIndex];
   const audio = document.getElementById("quiz-audio");
-  audio.src = q.audio; // ❌ 자동재생 제거됨
+  audio.src = q.audio;
   audio.pause();
   audio.currentTime = 0;
 
@@ -94,6 +94,8 @@ function showQuestion() {
 
 // 정답 확인
 function checkAnswer() {
+  if (waitingForNext) return;
+
   const input = document.getElementById("answer-input").value.trim().toLowerCase();
   const keywords = questions[currentIndex].answer.map(k => k.toLowerCase());
 
@@ -122,8 +124,9 @@ function showFeedback(isCorrect) {
 
 // 다음 문제로 이동
 function nextQuestion(force = false) {
-  if ((pause && !force) || waitingForNext) return;
+  if ((pause && !force) || (!force && waitingForNext)) return;
   currentIndex += 1;
+  waitingForNext = false;
   showQuestion();
 }
 
@@ -160,7 +163,6 @@ document.addEventListener("DOMContentLoaded", function () {
       nextBtn.onclick = () => {
         const overlay = document.getElementById("feedback-overlay");
         if (overlay) overlay.style.display = "none";
-        waitingForNext = false;
         nextQuestion();
       };
     }
