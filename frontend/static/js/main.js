@@ -146,13 +146,22 @@ function playAudio() {
   }
 }
 
-// 페이지 로딩 시
+// 페이지 로딩 시 이벤트 연결
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("quiz-container")) {
     fetchQuestions();
-    document.getElementById("submit-btn").onclick = checkAnswer;
-    document.getElementById("pause-btn").onclick = togglePause;
-    document.getElementById("resume-btn").onclick = togglePause;
+
+    const submitBtn = document.getElementById("submit-btn");
+    if (submitBtn) submitBtn.onclick = checkAnswer;
+
+    const pauseBtn = document.getElementById("pause-btn");
+    if (pauseBtn) pauseBtn.onclick = togglePause;
+
+    const resumeBtn = document.getElementById("resume-btn");
+    if (resumeBtn) resumeBtn.onclick = togglePause;
+
+    const playBtn = document.getElementById("play-btn");
+    if (playBtn) playBtn.onclick = playAudio;
 
     const nextBtn = document.getElementById("next-btn");
     if (nextBtn) {
@@ -173,3 +182,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("score-display").innerText = `${nickname}님의 점수: ${score} / 50`;
   }
 });
+
