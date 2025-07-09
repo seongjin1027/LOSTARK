@@ -54,11 +54,10 @@ function fetchQuestions() {
 
 // 현재 문제 보여주기
 function showQuestion() {
+  waitingForNext = false;
+
   const overlay = document.getElementById("feedback-overlay");
   if (overlay) overlay.style.display = "none";
-
-  // ✅ 문제 시작 시 대기 상태 초기화
-  waitingForNext = false;
 
   if (currentIndex >= questions.length) {
     const wrong = encodeURIComponent(JSON.stringify(wrongAnswers));
@@ -122,12 +121,12 @@ function showFeedback(isCorrect) {
 
 // 다음 문제로 이동
 function nextQuestion(force = false) {
-  if ((pause && !force) || (!force && !waitingForNext)) return;
+  if ((pause && !force) || waitingForNext) return;
   currentIndex += 1;
   showQuestion();
 }
 
-// 일시정지 (음악 포함)
+// 일시정지
 function togglePause() {
   pause = !pause;
   const overlay = document.getElementById("pause-overlay");
@@ -158,15 +157,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById("next-btn");
     if (nextBtn) {
       nextBtn.onclick = () => {
-        if (!waitingForNext) return;
         const overlay = document.getElementById("feedback-overlay");
         if (overlay) overlay.style.display = "none";
-        nextQuestion();
+        waitingForNext = false;
+        currentIndex += 1;
+        showQuestion();
       };
     }
   }
 
-  // 결과 페이지 점수 표시
   if (document.getElementById("score-display")) {
     const params = new URLSearchParams(window.location.search);
     const score = params.get("score");
@@ -174,7 +173,3 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("score-display").innerText = `${nickname}님의 점수: ${score} / 50`;
   }
 });
-
-
-
-
