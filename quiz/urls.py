@@ -8,4 +8,5 @@ urlpatterns = [
     path('result.html', views.result, name='result'),
     path('api/questions/', views.get_questions),
     path('api/submit/', views.submit_score),
+    path('api/save_answer/', views.save_answer),  # ✅ 유저 답변 저장용
 ]

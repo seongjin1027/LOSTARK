@@ -6,11 +6,11 @@ import json
 import os
 from pathlib import Path
 
-from .models import QuizResult
+from .models import QuizResult, UserAnswer  # ✅ UserAnswer 추가
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# ✅ 닉네임을 세션에 저장하는 API (index.html에서 호출됨)
+# ✅ 닉네임을 세션에 저장하는 API
 @csrf_exempt
 def store_nickname(request):
     if request.method == 'POST':
@@ -50,5 +50,27 @@ def submit_score(request):
         QuizResult.objects.create(nickname=nickname, score=score)
         return JsonResponse({'message': '저장 완료!'})
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+# ✅ 유저 개별 답안 저장 API
+@csrf_exempt
+def save_answer(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        ip = request.META.get('HTTP_X_FORWARDED_FOR')
+        if ip:
+            ip = ip.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+
+        UserAnswer.objects.create(
+            nickname=request.session.get('nickname', 'unknown'),
+            ip_address=ip,
+            question_number=data.get('question_number'),
+            correct_keywords=data.get('correct_keywords', []),
+            user_answer=data.get('user_answer', '')
+        )
+        return JsonResponse({'status': 'saved'})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+
 
 

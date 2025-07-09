@@ -93,7 +93,7 @@ function showQuestion() {
 
 // 정답 확인
 function checkAnswer() {
-  if (waitingForNext) return;  // 중복 제출 방지
+  if (waitingForNext) return;
   if (!questions[currentIndex]) return;
 
   const input = document.getElementById("answer-input").value.trim().toLowerCase();
@@ -109,6 +109,19 @@ function checkAnswer() {
       keywords
     });
   }
+
+  // ✅ 서버에 개별 답안 전송
+  fetch("/api/save_answer/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      question_number: currentIndex + 1,
+      correct_keywords: questions[currentIndex].answer,
+      user_answer: input
+    }),
+  });
 
   showFeedback(isCorrect);
 }
