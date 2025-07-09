@@ -6,7 +6,7 @@ import json
 import os
 from pathlib import Path
 
-from .models import QuizResult, UserAnswer  # ✅ UserAnswer 추가
+from .models import QuizResult, UserAnswer, AnswerSummary  # ✅ AnswerSummary 추가됨
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -50,12 +50,12 @@ def submit_score(request):
 
         QuizResult.objects.create(nickname=nickname, score=score)
 
-        # ✅ IP 주소 추출
+        # ✅ IP 주소 추출 (안전 처리 포함)
         ip = request.META.get('HTTP_X_FORWARDED_FOR')
         if ip:
             ip = ip.split(',')[0]
         else:
-            ip = request.META.get('REMOTE_ADDR')
+            ip = request.META.get('REMOTE_ADDR') or '0.0.0.0'
 
         # ✅ UserAnswer 집계
         user_answers = UserAnswer.objects.filter(nickname=nickname)
@@ -80,6 +80,7 @@ def submit_score(request):
 
         return JsonResponse({'message': '저장 완료!'})
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
 # ✅ 유저 개별 답안 저장 API
 @csrf_exempt
 def save_answer(request):
@@ -89,7 +90,7 @@ def save_answer(request):
         if ip:
             ip = ip.split(',')[0]
         else:
-            ip = request.META.get('REMOTE_ADDR')
+            ip = request.META.get('REMOTE_ADDR') or '0.0.0.0'
 
         UserAnswer.objects.create(
             nickname=request.session.get('nickname', 'unknown'),
@@ -100,6 +101,8 @@ def save_answer(request):
         )
         return JsonResponse({'status': 'saved'})
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+
 
 
 
